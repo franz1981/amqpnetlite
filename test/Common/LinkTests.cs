@@ -806,7 +806,7 @@ namespace Test.Amqp
                 Assert.IsTrue(m != null, "Didn't receive message " + i);
                 receiver.Accept(m);
             }
-
+            receiver.Close();
             session.Close(0);
             connection.Close();
             Assert.IsTrue(connection.Error == null, "connection has error!");
